@@ -1,0 +1,13 @@
+*.pdb
+
+*.obj
+
+*.ilk
+
+*.exe
+
+#过滤文件夹Debug,Release,obj
+
+
+
+obj/
