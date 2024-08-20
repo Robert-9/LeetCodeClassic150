@@ -30,7 +30,6 @@ private:
             }
             array[j] = array[i];
         }
-        //将基准temp放于自己的位置，（第i个位置）
         array[i] = pivot;
         quickSort(array, left, i - 1);
         quickSort(array, i + 1, right);
@@ -50,7 +49,7 @@ public:
 
 int main(){
     Solution solution;
-    vector<int> nums = {1};
+    vector<int> nums = {3, 0, 4, 1, 6, 5, 2};
 
     int res = solution.hIndex(nums);
 
