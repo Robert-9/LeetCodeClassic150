@@ -11,33 +11,67 @@
 #include <algorithm>
 using namespace std;
 
+// class Solution {
+// public:
+//     int jump(vector<int>& nums) {
+//         if(nums.empty()) return 0;
+
+//         int n = nums.size();
+//         vector<int> dp(n);  // 表示到下标为n的点需要的最小步数
+//         int maxReach = nums[0];
+//         int start = 0;
+
+//         dp[0] = 0;
+//         for(int i=1; i<n; i++){
+//             if(i <= maxReach){
+//                 dp[i] = dp[i-1];
+//             } else{
+//                 // 更新maxReach
+//                 for(int j=start; j<i; j++){
+//                     if(nums[j]+j >= maxReach){
+//                         maxReach = nums[j]+j;
+//                         start = j;
+//                     }
+//                 }
+//                 dp[i] = dp[i-1] + 1;
+//             }
+//             if(maxReach == n-1){
+//                 return dp[i];
+//             }
+//         }
+//     }
+// };
+
 class Solution {
 public:
     int jump(vector<int>& nums) {
-        if(nums.empty()) return 0;
+        int count = 0;
+        int len = nums.size();
+        if(len == 1) return 0;
 
-        int n = nums.size();
-        vector<int> dp(n);  // 表示到下标为n的点需要的最小步数
-        int maxReach = nums[0];
-        int start = 0;
+        int maxReach = 0, curReach = 0;
+        for(int i=0; i<len; i++){
 
-        dp[0] = 0;
-        for(int i=1; i<n; i++){
-            if(i <= maxReach){
-                dp[i] = dp[i-1];
-            } else{
-                // 更新maxReach
-                for(int j=start; j<i; j++){
-                    if(nums[j]+j >= maxReach){
-                        maxReach = nums[j]+j;
-                        start = j;
-                    }
+            curReach = nums[i] + i;
+
+            if(curReach > maxReach){
+                maxReach = curReach;
+                // i = maxReach;
+                count++;
+                if(maxReach >= len){
+                    break;
                 }
-                dp[i] = dp[i-1] + 1;
             }
-            if(maxReach == n-1){
-                return dp[i];
-            }
+
         }
+        return count;
+
     }
 };
+
+int main(){
+    Solution solution;
+    vector<int> nums = {1, 1, 1, 1};
+
+    solution.jump(nums);
+}
