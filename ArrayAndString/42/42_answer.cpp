@@ -1,3 +1,11 @@
+/*
+    当 height[left] <= height[right] 时：
+        此时，left_max 是左边指针经过的最高的柱子高度，它保证了在 left 位置能形成的“水池”的右边界一定不低于 height[right]。
+        也就是说，如果左侧高度 height[left] 小于 left_max，那么在 left 位置能够积累的雨水的深度就是 left_max - height[left]，
+        而不需要担心右边更小的柱子，因为我们已经确定 右边的界限由 height[right] 决定，而 height[right] 不会比 height[left] 更小。
+        这样的操作是安全且正确的，因为任何中间更小的柱子不会影响已经确认的左边界的雨水积累。
+*/
+
 #include <vector>
 #include <iostream>
 using namespace std;

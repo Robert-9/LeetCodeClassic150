@@ -43,6 +43,7 @@
         "xstring": "cpp",
         "map": "cpp",
         "xtree": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "cctype": "cpp"
     }
 }

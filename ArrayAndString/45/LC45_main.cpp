@@ -54,7 +54,7 @@ public:
 
             curReach = nums[i] + i;
 
-            if(curReach > maxReach){
+            if(curReach >= maxReach){
                 maxReach = curReach;
                 // i = maxReach;
                 count++;

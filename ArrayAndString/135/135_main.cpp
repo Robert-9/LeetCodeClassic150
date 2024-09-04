@@ -14,37 +14,73 @@ using namespace std;
 
 class Solution {
 private:
-    int calCandy(vector<int>& ratings){
-        int minVal = 1;
-        int prev = 1;
-        int cur = 1;
-        int sum = 1;
-        for(int i=1; i<ratings.size(); i++){
-            if (ratings[i] > ratings[i - 1]) {
-                cur = prev + 1;
-            } else {
-                cur = 1;
-                // if (cur < minVal) {
-                //     minVal = cur;
-                // }
+    int calMin(vector<int>& ratings, int len){
+        /*
+            寻找第一个最小值
+        */
+        int minVal = 2 * 10000;
+        int minIndex = 0;
+        for(int i=0; i<len; i++){
+            if(ratings[i] < minVal){
+                minVal = ratings[i];
+                minIndex = i;
             }
-            sum += cur;
-            prev = cur;
         }
-
-        // if(minVal < 1){
-        //     sum = sum + (1-minVal) * (ratings.size());
-        // }
-        return sum;
+        
+        return minIndex;
     }
 public:
     int candy(vector<int>& ratings) {
         if(ratings.empty()) return 0;
-        int res1 = calCandy(ratings);
-        // reverse(ratings.begin(), ratings.end());
-        // int res2 = calCandy(ratings);
-        // return (res1 > res2) ? res2 : res1;
-        return res1;
+
+        int len = ratings.size();
+        int result = 1;
+        int prev = 1;
+
+        int minIndex = calMin(ratings, len);
+        if(minIndex != 0){
+            for(int i=minIndex-1; i>=0; i--){
+                if(ratings[i] < ratings[i+1]){
+                    result += prev-1;
+                    prev = prev-1;
+                }
+                else if(ratings[i] > ratings[i+1]){
+                    result += prev+1;
+                    prev = prev+1;
+                }
+                else if(ratings[i] == ratings[i+1]){
+                    if(prev != 1){
+                        result += prev-1;
+                    } else{
+                        result += prev+1;
+                    }
+                }
+            }
+        }
+        prev = 1;
+        if(minIndex != len-1){
+            for(int i=minIndex+1; i<len; i++){
+                if(ratings[i] < ratings[i-1]){
+                    result += prev-1;
+                    prev = prev-1;
+                }
+                else if(ratings[i] > ratings[i-1]){
+                    result += prev+1;
+                    prev = prev+1;
+                }
+                else if(ratings[i] == ratings[i-1]){
+                    if(prev != 1){
+                        result += prev-1;
+                        prev = prev-1;
+                    } else{
+                        result += prev+1;
+                        prev = prev+1;
+                    }
+                }
+            }
+        }
+
+        return result;
     }
 };
 
@@ -52,6 +88,7 @@ public:
 int main(){
     Solution solution;
     vector<int> candy = {1,2,87,87,87,2,1};
+    // vector<int> candy = {1,3,2,2,1};
     int res = solution.candy(candy);
 
     cout<< res;
