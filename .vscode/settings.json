@@ -44,6 +44,7 @@
         "map": "cpp",
         "xtree": "cpp",
         "string": "cpp",
-        "cctype": "cpp"
+        "cctype": "cpp",
+        "unordered_set": "cpp"
     }
 }
