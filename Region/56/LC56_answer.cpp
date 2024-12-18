@@ -16,7 +16,7 @@ public:
         for (int i = 0; i < intervals.size(); ++i) {  
             int start = intervals[i][0], end = intervals[i][1];  // 当前遍历到的区间的左右值
 
-            if (!result.size() || result.back()[1] < start) {  // result为空 或者 result的最后一个区间小于当前遍历到的区间的左值（即无重叠）
+            if (!result.size() || result.back()[1] < start) {  // result为空 或者 result的最后一个区间右值小于当前遍历到的区间的左值（即无重叠）
                 result.push_back({start, end});  
             }  
             else {  
