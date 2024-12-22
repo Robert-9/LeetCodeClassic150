@@ -46,6 +46,8 @@
         "string": "cpp",
         "cctype": "cpp",
         "unordered_set": "cpp",
-        "set": "cpp"
+        "set": "cpp",
+        "stack": "cpp",
+        "deque": "cpp"
     }
 }
