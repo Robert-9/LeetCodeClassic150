@@ -4,7 +4,8 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/**",
-                "D:/All_programs/C++/LeetCodeClassic150/List"
+                "D:/All_programs/C++/LeetCodeClassic150/List",
+                "D:/All_programs/C++/LeetCodeClassic150/Stack"
             ],
             "defines": [
                 "_DEBUG",
