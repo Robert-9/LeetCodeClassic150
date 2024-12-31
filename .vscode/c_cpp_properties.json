@@ -5,7 +5,8 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "D:/All_programs/C++/LeetCodeClassic150/List",
-                "D:/All_programs/C++/LeetCodeClassic150/Stack"
+                "D:/All_programs/C++/LeetCodeClassic150/Stack",
+                "D:/All_programs/C++/LeetCodeClassic150/SlidingWindow"
             ],
             "defines": [
                 "_DEBUG",
