@@ -6,7 +6,8 @@
                 "${workspaceFolder}/**",
                 "D:/All_programs/C++/LeetCodeClassic150/List",
                 "D:/All_programs/C++/LeetCodeClassic150/Stack",
-                "D:/All_programs/C++/LeetCodeClassic150/SlidingWindow"
+                "D:/All_programs/C++/LeetCodeClassic150/SlidingWindow",
+                "D:/All_programs/C++/LeetCodeClassic150/BinaryTree"
             ],
             "defines": [
                 "_DEBUG",
