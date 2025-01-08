@@ -1,6 +1,7 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
+#include <deque>
 #include <queue>
 #include <stack>
 
