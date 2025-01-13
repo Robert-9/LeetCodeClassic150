@@ -50,19 +50,22 @@ public:
         else if (!root->children.empty() && word.empty()) {
             if (root->isEndofWords) {
                 return true;
-            } else
+            } 
+            else
                 return false;
-        } else if (root->children.empty() && word.empty())
+        } 
+        else if (root->children.empty() && word.empty())
             return true;
         wdNode* curr = root;
 
         for (int i = 0; i < word.size(); i++) {
             if (curr->children.count(word[i])) {
                 curr = curr->children[word[i]];
-            } else if (word[i] != '.' || curr->children.empty()) {
+            } 
+            else if (word[i] != '.' || curr->children.empty()) {
                 return false;
-            } else { // 为'.'
-                     // 时，1.点后面还有内容 2.word已经结束但短了 3.word和某个词同时结束
+            } 
+            else { // 为'.'
                 string subWord = word.substr(i + 1, word.size());
                 // if(subWord.empty()) break;
                 bool subResTotal = false;
